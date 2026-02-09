@@ -1,3 +1,6 @@
+#Blogger: https://rprogrammingjournalleyaalexander.blogspot.com/2026/02/assignment-4.html
+
+
 # Variables: freq, bloodp, first, second, finaldecision
 
 Frequency <- c(0.6, 0.3, 0.4, 0.4, 0.2, 0.6, 0.3, 0.4, 0.9, 0.2)
