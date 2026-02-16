@@ -1,3 +1,5 @@
+#link to blog: https://rprogrammingjournalleyaalexander.blogspot.com/2026/02/assignment-5.html
+
 # Create the matrices
 A <- matrix(1:100,  nrow = 10)     # 10x10
 B <- matrix(1:1000, nrow = 10)     # 10x100
