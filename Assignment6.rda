@@ -1,0 +1,30 @@
+# Question 1
+A <- matrix(c(2, 0, 1, 3), ncol = 2)
+B <- matrix(c(5, 2, 4, -1), ncol = 2)
+
+# a) A + B
+A_plus_B <- A + B
+A_plus_B
+
+# b) A - B
+A_minus_B <- A - B
+A_minus_B
+
+
+# Question 2
+# Create diagonal matrix with values 4, 1, 2, 3
+D <- diag(c(4, 1, 2, 3))
+D
+
+
+# Question 3
+# Create 5x5 identity matrix with 3s on diagonal
+M <- diag(3, 5)
+
+# Replace first row with 3 1 1 1 1
+M[1, ] <- c(3, 1, 1, 1, 1)
+
+# Replace first column (rows 2–5) with 2
+M[2:5, 1] <- 2
+
+M
