@@ -1,4 +1,4 @@
-#Blogger link: 
+#Blogger link: https://rprogrammingjournalleyaalexander.blogspot.com/2026/02/assignment-6.html
 
 
 # Question 1
