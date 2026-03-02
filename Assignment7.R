@@ -1,4 +1,4 @@
-#Blogger Link: 
+#Blogger Link: https://rprogrammingjournalleyaalexander.blogspot.com/2026/03/assignment-7.html
 
 # STEP 1: Exploring the iris dataset
 # ===============================
