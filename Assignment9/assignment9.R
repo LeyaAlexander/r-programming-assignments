@@ -1,14 +1,8 @@
-# ============================================================
-# Assignment 9: Visualization in R - Base Graphics, Lattice,
-#               and ggplot2
-# Dataset: SmallCellLung - Small Cell Lung Cancer Clinical Trial
-# Source:  Rdatasets collection
-#          https://vincentarelbundock.github.io/Rdatasets/datasets.html
-#          Package: KMsurv | Dataset: smallcell
-# Columns: treatment (A/B), age (years), survival (days)
-# ============================================================
 
-# ---- Load Dataset -------------------------------------------
+# Assignment 9: Visualization in R - Base Graphics, Lattice, and ggplot2
+# Dataset: SmallCellLung - Small Cell Lung Cancer Clinical Trial
+# Source:  Rdatasets collection https://vincentarelbundock.github.io/Rdatasets/datasets.html
+
 SmallCellLung <- read.csv("SmallCellLung_tbl_df.csv")
 head(SmallCellLung)
 str(SmallCellLung)
@@ -16,15 +10,10 @@ str(SmallCellLung)
 # Convert treatment to factor for cleaner grouping
 SmallCellLung$treatment <- as.factor(SmallCellLung$treatment)
 
-# Create output folder for saved plots
+# Output folder for saved plots
 dir.create("plots", showWarnings = FALSE)
 
-
-# ============================================================
-# SECTION 1: BASE R GRAPHICS
-# ============================================================
-
-# --- Plot 1: Scatter plot – Age vs Survival by Treatment ----
+# Plot 1: Scatter plot – Age vs Survival by Treatment 
 png("plots/base_scatter.png", width = 800, height = 600, res = 120)
 plot_colors <- ifelse(SmallCellLung$treatment == "A", "tomato", "steelblue")
 
@@ -43,7 +32,7 @@ legend("topright",
 dev.off()
 
 
-# --- Plot 2: Histogram – Distribution of Survival Days ------
+# Plot 2: Histogram – Distribution of Survival Days
 png("plots/base_histogram.png", width = 800, height = 600, res = 120)
 hist(SmallCellLung$survival,
      col    = "lightblue",
@@ -67,13 +56,11 @@ legend("topright",
 dev.off()
 
 
-# ============================================================
-# SECTION 2: LATTICE GRAPHICS
-# ============================================================
+
 
 library(lattice)
 
-# --- Plot 3: Conditioned Scatter Plot – Survival ~ Age by Treatment ---
+# Plot 3: Conditioned Scatter Plot
 png("plots/lattice_xyplot.png", width = 900, height = 500, res = 120)
 print(
   xyplot(survival ~ age | treatment,
@@ -88,7 +75,7 @@ print(
 dev.off()
 
 
-# --- Plot 4: Box-and-Whisker Plot – Survival by Treatment ----
+# Plot 4: Box-and-Whisker Plot
 png("plots/lattice_boxplot.png", width = 700, height = 600, res = 120)
 print(
   bwplot(survival ~ treatment,
@@ -104,14 +91,9 @@ print(
 )
 dev.off()
 
-
-# ============================================================
-# SECTION 3: GGPLOT2
-# ============================================================
-
 library(ggplot2)
 
-# --- Plot 5: Scatter Plot with Linear Smoother by Treatment --
+#Plot 5: Scatter Plot with Linear Smoother
 p5 <- ggplot(SmallCellLung, aes(x = age, y = survival, color = treatment)) +
   geom_point(size = 2.5, alpha = 0.75) +
   geom_smooth(method = "lm", se = TRUE, linewidth = 1) +
@@ -125,7 +107,7 @@ p5 <- ggplot(SmallCellLung, aes(x = age, y = survival, color = treatment)) +
 ggsave("plots/ggplot2_scatter.png", plot = p5, width = 8, height = 5, dpi = 150)
 
 
-# --- Plot 6: Faceted Histogram – Survival Distribution by Treatment ---
+#Plot 6: Faceted Histogram
 p6 <- ggplot(SmallCellLung, aes(x = survival, fill = treatment)) +
   geom_histogram(binwidth = 150, color = "white", alpha = 0.85) +
   facet_wrap(~ treatment,
@@ -139,4 +121,3 @@ p6 <- ggplot(SmallCellLung, aes(x = survival, fill = treatment)) +
   theme(legend.position = "none")
 ggsave("plots/ggplot2_histogram.png", plot = p6, width = 8, height = 5, dpi = 150)
 
-cat("\nAll 6 plots saved to the plots/ folder.\n")
