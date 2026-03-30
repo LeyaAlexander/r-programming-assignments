@@ -1,0 +1,33 @@
+Package: scExploreR
+Title: Single-Cell RNA-Seq Explorer with UMAP Visualization
+Version: 0.0.0.9000
+Authors@R: 
+    person("Leya", "Alexander",
+           email = "leyaalexander@usf.edu",
+           role = c("aut", "cre"))
+Description: An educational toolkit for exploring single-cell RNA
+    sequencing (scRNA-seq) data. Provides easy-to-use functions for UMAP
+    visualization, descriptive statistics, and hypothesis testing (t-tests,
+    ANOVA) of gene expression data. Demonstrates three R plotting systems
+    (Base Graphics, Lattice, and ggplot2) using a bundled PBMC dataset.
+Depends: 
+    R (>= 3.5.0)
+Imports: 
+    ggplot2,
+    lattice,
+    stats,
+    grDevices,
+    graphics
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+License: CC0
+LazyData: true
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+URL: https://github.com/LeyaAlexander/r-programming-assignments
+BugReports: https://github.com/LeyaAlexander/r-programming-assignments/issues
+VignetteBuilder: knitr
+Config/testthat/edition: 3
