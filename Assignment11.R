@@ -1,6 +1,4 @@
-#Blogger Link: https://rprogrammingjournalleyaalexander.blogspot.com/2026/04/assignment-11.html
-
-# Assignment 11: Debugging the Tukey Outlier Function
+#Blogger Link: https://rprogrammingjournalleyaalexander.blogspot.com/2026/04/assignment-11-debugging-tukey-outlier.html
 # ===============================
 
 # Helper function (provided, no bug)
