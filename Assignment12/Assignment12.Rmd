@@ -1,0 +1,52 @@
+# LIS 4370 R Markdown Primer
+
+Leya Alexander  
+April 12, 2026
+
+## Introduction
+
+R Markdown is a way to combine text, math, and R code in one file. It helps keep analysis and writing together.
+
+## Narrative Paragraph
+
+This document shows a basic workflow with short text and simple code. The output is easy to read because results appear under each code chunk. The example uses a simple single-cell RNA tumor dataset.
+
+## Math Examples
+
+Inline math example: $\alpha + \beta = \gamma$.
+
+Displayed equation:
+
+$$
+y = mx + b
+$$
+
+## Basic R Code Chunk 1
+
+```{r}
+sc_tumor <- data.frame(
+     cell_id = paste0("Cell", 1:8),
+     sample_type = c("Tumor", "Tumor", "Tumor", "Tumor", "Normal", "Normal", "Normal", "Normal"),
+     geneA_expr = c(8.2, 7.9, 9.1, 8.7, 3.2, 2.8, 3.5, 2.9)
+)
+
+head(sc_tumor)
+```
+
+## Basic R Code Chunk 2
+
+```{r}
+summary(sc_tumor$geneA_expr)
+boxplot(geneA_expr ~ sample_type, data = sc_tumor,
+     xlab = "Sample Type",
+     ylab = "Gene A Expression",
+     main = "Single-Cell Gene A in Tumor vs Normal")
+```
+
+## Reflection
+
+R Markdown feels easier than writing a plain report because code and output stay in one place. It also supports reproducible analysis since the same file can be rerun to regenerate results.
+
+## Compile and Review
+
+When I compare source and output, I notice that headings and math are formatted more cleanly in the rendered file. One useful tip is to keep section names simple and keep code chunks short so errors are easier to find.
