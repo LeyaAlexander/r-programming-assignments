@@ -35,6 +35,8 @@ head(sc_tumor)
 
 ## Basic R Code Chunk 2
 
+In this box plot, the box measures the interquartile range, $\mathrm{IQR} = Q_3 - Q_1$, which represents the middle 50% of Gene A expression values.
+
 ```{r}
 summary(sc_tumor$geneA_expr)
 boxplot(geneA_expr ~ sample_type, data = sc_tumor,
