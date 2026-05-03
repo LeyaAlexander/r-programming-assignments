@@ -108,6 +108,27 @@ Expected messages include:
 - `Gene FAKE not found in dataset.`
 - `Cell type not found.`
 
+## Testing
+
+This package includes automated tests with `testthat` (edition 3). The test suite is organized into four files:
+
+- `tests/testthat/test-load_scrna.R`: data loading structure and dimensions.
+- `tests/testthat/test-stats.R`: statistical function outputs and defensive error handling.
+- `tests/testthat/test-graphics.R`: plotting return types across base, lattice, and ggplot2 methods.
+- `tests/testthat/test-scData.R`: S3 `print`, `summary`, and `plot` method behavior.
+
+Run tests locally with:
+
+```r
+devtools::test()
+```
+
+Or run full package checks with:
+
+```r
+R CMD check scExploreRFinal --no-manual
+```
+
 ## License
 
 CC0 1.0 Universal (Public Domain Dedication).
