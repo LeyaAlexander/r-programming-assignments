@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+
+% \VignetteIndexEntry{scExploreRFinal Overview}
+% \VignetteEngine{utils::Sweave}
+
+\title{scExploreRFinal: Single-Cell RNA-seq Exploration}
+\author{Leya Alexander \\ Undergraduate Pre-Med Student, University of South Florida (USF) \\ LIS4370: Advanced R Programming (Dr. Alon Friedman) \\ Machine Learning Department, Moffitt Cancer Center (El Naqa Lab)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Single-cell RNA sequencing (scRNA-seq) allows scientists to investigate cell biology at an unprecedented resolution compared to traditional bulk RNA sequencing. Instead of homogenizing tissues and losing critical tumor microenvironment architecture, scRNA-seq captures the transcriptomic profile of individual cells. 
+
+As an undergraduate pre-med student at the University of South Florida gaining research experience at the El Naqa Lab (Moffitt Cancer Center), I am actively investigating clear cell renal cell carcinoma (ccRCC) through single-cell and spatial transcriptomics. 
+
+My exposure to these advanced methodologies during my research experience deeply inspired the creation of this independent project. While not an official product of the El Naqa Lab, it was engineered specifically for LIS4370 (Advanced R Programming) as an educational toolkit to safely encapsulate complex genetics inside highly straightforward R paradigms.
+
+\section{Loading the Dataset}
+
+The package contains an authentic, light-weight subset of the classic 10X Genomics Peripheral Blood Mononuclear Cells (PBMC) dataset. It leverages S3 object-oriented frameworks for intuitive workflows.
+
+<<setup, echo=TRUE>>=
+library(scExploreRFinal)
+
+# Load the S3 matrix
+my_data <- load_scrna()
+
+# The package natively uses S3 generics
+print(my_data)
+@
+
+\section{Exploratory Data Analysis}
+
+We employ Principal Component Analysis (PCA) to compress high-dimensional gene structures down to Principal Components.
+
+<<pca, echo=TRUE, fig=TRUE, height=4>>=
+# Utilizing the lattice plotting system
+plot(my_data, method = "lattice")
+@
+
+\section{Statistical Evaluation}
+
+We can statistically explore memory genes like \texttt{CD8A} and determine whether differences across populations are mathematically significant, using standard Two-Sample T-tests.
+
+<<ttest, echo=TRUE>>=
+# Two-Sample T-Test
+res <- compare_expression(my_data, gene = "CD8A", type1 = "CD8+ T cell", type2 = "B cell")
+res
+@
+
+\end{document}

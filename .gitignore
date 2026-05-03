@@ -1,0 +1,16 @@
+# macOS metadata
+.DS_Store
+
+# Raw 10x Genomics input files (large; reproducible from data-raw/process_public_data.R)
+scExploreRFinal/data-raw/pbmc/
+scExploreR/data-raw/pbmc/
+
+# R / RStudio session files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Built package artifacts
+*.tar.gz
+inst/doc

@@ -1,0 +1,32 @@
+Package: scExploreRFinal
+Title: Single-Cell RNA-Seq Explorer with PCA Visualization
+Version: 0.1.0
+Authors@R:
+    person("Leya", "Alexander",
+           email = "leyaalexander@usf.edu",
+           role = c("aut", "cre"))
+Description: An educational toolkit for exploring single-cell RNA
+    sequencing (scRNA-seq) data. Provides functions for PCA
+    visualization, descriptive statistics, and hypothesis testing
+    (t-tests, Wilcoxon, ANOVA) of gene expression data with
+    defensive input validation. Demonstrates three R plotting
+    systems (Base Graphics, Lattice, and ggplot2) on a bundled
+    subset of the 10x Genomics PBMC dataset. Final project for
+    LIS4370 Advanced R Programming, University of South Florida.
+Depends:
+    R (>= 4.0)
+Imports:
+    ggplot2,
+    lattice
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+License: CC0
+LazyData: true
+Encoding: UTF-8
+URL: https://github.com/LeyaAlexander/r-programming-assignments
+BugReports: https://github.com/LeyaAlexander/r-programming-assignments/issues
+RoxygenNote: 7.3.3
+VignetteBuilder: knitr
+Config/testthat/edition: 3
