@@ -16,8 +16,9 @@ Depends:
 Imports: 
     ggplot2,
     lattice
-License: CC0
+License: GPL-3
 LazyData: true
 Encoding: UTF-8
 URL: https://github.com/LeyaAlexander/r-programming-assignments
 BugReports: https://github.com/LeyaAlexander/r-programming-assignments/issues
+RoxygenNote: 7.3.3

@@ -11,7 +11,6 @@
 #' explore_genes(data, "CD79A")
 explore_genes <- function(data, gene) {
   if (!inherits(data, "scData")) stop("data must be of class 'scData'")
-  if (!is.character(gene) || length(gene) != 1) stop("gene must be a single character string.")
   if (!gene %in% rownames(data$expression)) stop(paste("Gene", gene, "not found in dataset."))
   
   # Extract the single vector of scalar values representing this gene across all cells
@@ -51,9 +50,6 @@ explore_genes <- function(data, gene) {
 #' compare_expression(data, "CD79A", "B cell", "CD4+ T cell")
 compare_expression <- function(data, gene, type1, type2, method = "t.test") {
   if (!inherits(data, "scData")) stop("data must be of class 'scData'")
-  if (!is.character(gene) || length(gene) != 1) stop("gene must be a single character string.")
-  if (!is.character(type1) || length(type1) != 1) stop("type1 must be a single character string.")
-  if (!is.character(type2) || length(type2) != 1) stop("type2 must be a single character string.")
   if (!gene %in% rownames(data$expression)) stop("Gene not found.")
   if (!all(c(type1, type2) %in% levels(data$cell_types))) stop("Cell type not found.")
   
@@ -88,7 +84,6 @@ compare_expression <- function(data, gene, type1, type2, method = "t.test") {
 #' run_anova(data, "CD8A")
 run_anova <- function(data, gene) {
   if (!inherits(data, "scData")) stop("data must be of class 'scData'")
-  if (!is.character(gene) || length(gene) != 1) stop("gene must be a single character string.")
   if (!gene %in% rownames(data$expression)) stop("Gene not found.")
   
   # Build a 2-column dataframe connecting expression variables to categorical grouping factors

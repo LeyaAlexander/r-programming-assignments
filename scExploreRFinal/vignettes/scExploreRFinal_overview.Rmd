@@ -1,0 +1,155 @@
+---
+title: "scExploreRFinal: Single-Cell RNA-seq Exploration"
+author: |
+  Leya Alexander  
+  Undergraduate Pre-Med Student, University of South Florida (USF)  
+  LIS4370: Advanced R Programming (Dr. Alon Friedman)  
+  Machine Learning Department, Moffitt Cancer Center (El Naqa Lab)
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{scExploreRFinal Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>"
+)
+```
+
+## Introduction
+
+Single-cell RNA sequencing (scRNA-seq) allows scientists to investigate cell
+biology at an unprecedented resolution compared to traditional bulk RNA
+sequencing. Instead of homogenizing tissues and losing critical tumor
+microenvironment architecture, scRNA-seq captures the transcriptomic profile of
+individual cells.
+
+As an undergraduate pre-med student at the University of South Florida gaining
+research experience at the El Naqa Lab (Moffitt Cancer Center), I am actively
+investigating clear cell renal cell carcinoma (ccRCC) through single-cell and
+spatial transcriptomics.
+
+My exposure to these advanced methodologies deeply inspired the creation of this
+project. While not an official product of the El Naqa Lab, it was built for
+LIS4370 (Advanced R Programming) as an educational toolkit that encapsulates
+complex genomics inside straightforward R paradigms.
+
+---
+
+## 1. Loading the Dataset
+
+The package contains a light-weight subset of the classic 10X Genomics
+Peripheral Blood Mononuclear Cells (PBMC) dataset. Loading it assigns the S3
+class `scData`, which unlocks the package's generic methods.
+
+```{r load}
+library(scExploreRFinal)
+
+# Load the dataset and create an S3 scData object
+my_data <- load_scrna()
+
+# The S3 print generic gives a concise summary
+print(my_data)
+```
+
+```{r summary}
+# summary() reports cell-type counts and library sizes (total counts per cell)
+summary(my_data)
+```
+
+---
+
+## 2. PCA Visualization — Three Plotting Systems
+
+Principal Component Analysis (PCA) compresses high-dimensional gene expression
+down to 2 axes so that cells with similar transcriptomic profiles cluster
+together. The package demonstrates all three major R plotting systems.
+
+### Base R
+
+```{r pca-base, fig.width=7, fig.height=5}
+plot_pca(my_data, method = "base")
+```
+
+### Lattice
+
+```{r pca-lattice, fig.width=7, fig.height=5}
+plot_pca(my_data, method = "lattice")
+```
+
+### ggplot2
+
+```{r pca-ggplot2, fig.width=7, fig.height=5}
+plot_pca(my_data, method = "ggplot2")
+```
+
+---
+
+## 3. Gene Expression Distribution
+
+`plot_expression()` shows how a gene's transcript counts are spread across cell
+types. The ggplot2 version overlays a violin (kernel density shape) on a
+mini-boxplot for maximum statistical detail.
+
+```{r expr-ggplot, fig.width=7, fig.height=5}
+plot_expression(my_data, gene = "CD79A", method = "ggplot2")
+```
+
+---
+
+## 4. Descriptive Statistics per Cell Type
+
+`explore_genes()` computes mean, median, and standard deviation for a gene
+broken down by cell-type cluster. This reveals whether a gene is a
+cluster-specific marker or broadly expressed.
+
+```{r explore}
+explore_genes(my_data, gene = "CD79A")
+```
+
+---
+
+## 5. Differential Expression — T-test & Wilcoxon
+
+`compare_expression()` runs a two-sample test between any two cell types.
+Because scRNA-seq data is often zero-inflated and highly skewed, the
+non-parametric Wilcoxon test is popular alongside the classical t-test.
+
+```{r ttest}
+# Parametric two-sample t-test
+compare_expression(my_data, gene = "CD8A",
+                   type1 = "CD8+ T cell", type2 = "B cell",
+                   method = "t.test")
+```
+
+```{r wilcox}
+# Non-parametric Wilcoxon rank-sum test
+compare_expression(my_data, gene = "CD8A",
+                   type1 = "CD8+ T cell", type2 = "B cell",
+                   method = "wilcox")
+```
+
+---
+
+## 6. One-Way ANOVA
+
+`run_anova()` tests whether a gene's mean expression differs across **all** cell
+types simultaneously. A low p-value indicates the gene is a meaningful
+biological marker for at least one cluster.
+
+```{r anova}
+result <- run_anova(my_data, gene = "CD8A")
+summary(result)
+```
+
+---
+
+## Session Info
+
+```{r session}
+sessionInfo()
+```

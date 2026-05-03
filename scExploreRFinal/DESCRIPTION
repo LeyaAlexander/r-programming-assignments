@@ -13,6 +13,8 @@ Description: An educational toolkit for exploring single-cell RNA
     systems (Base Graphics, Lattice, and ggplot2) on a bundled
     subset of the 10x Genomics PBMC dataset. Final project for
     LIS4370 Advanced R Programming, University of South Florida.
+Author: Leya Alexander [aut, cre]
+Maintainer: Leya Alexander <leyaalexander@usf.edu>
 Depends:
     R (>= 4.0)
 Imports:
@@ -22,6 +24,7 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
+VignetteBuilder: knitr
 License: CC0
 LazyData: true
 Encoding: UTF-8

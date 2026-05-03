@@ -1,0 +1,6 @@
+^blogger_assets$
+^data-raw$
+^scExploreRFinal\.Rcheck$
+^\.DS_Store$
+^scExploreRFinal_[0-9.-]+\.tar\.gz$
+^build$

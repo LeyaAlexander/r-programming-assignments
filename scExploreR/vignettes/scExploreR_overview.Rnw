@@ -4,10 +4,10 @@
 \geometry{a4paper, margin=1in}
 \usepackage{hyperref}
 
-% \VignetteIndexEntry{scExploreRFinal Overview}
+% \VignetteIndexEntry{scExploreR Overview}
 % \VignetteEngine{utils::Sweave}
 
-\title{scExploreRFinal: Single-Cell RNA-seq Exploration}
+\title{scExploreR: Single-Cell RNA-seq Exploration}
 \author{Leya Alexander \\ Undergraduate Pre-Med Student, University of South Florida (USF) \\ LIS4370: Advanced R Programming (Dr. Alon Friedman) \\ Machine Learning Department, Moffitt Cancer Center (El Naqa Lab)}
 \date{\today}
 
@@ -27,7 +27,7 @@ My exposure to these advanced methodologies during my research experience deeply
 The package contains an authentic, light-weight subset of the classic 10X Genomics Peripheral Blood Mononuclear Cells (PBMC) dataset. It leverages S3 object-oriented frameworks for intuitive workflows.
 
 <<setup, echo=TRUE>>=
-library(scExploreRFinal)
+library(scExploreR)
 
 # Load the S3 matrix
 my_data <- load_scrna()

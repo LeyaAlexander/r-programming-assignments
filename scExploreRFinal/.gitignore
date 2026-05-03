@@ -1,0 +1,17 @@
+# macOS metadata
+.DS_Store
+
+# Local R session files
+.Rhistory
+.RData
+.Ruserdata
+
+# Package build/check outputs
+*.tar.gz
+*.Rcheck/
+..Rcheck/
+scExploreRFinal.Rcheck/
+
+# Generated docs and blog assets
+inst/doc/
+blogger_assets/

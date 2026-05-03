@@ -14,3 +14,10 @@ scExploreR/data-raw/pbmc/
 # Built package artifacts
 *.tar.gz
 inst/doc
+
+# Package check/build output
+*.Rcheck/
+..Rcheck/
+
+# Generated blog assets for final project write-up
+scExploreRFinal/blogger_assets/

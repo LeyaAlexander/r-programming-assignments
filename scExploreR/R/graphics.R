@@ -1,6 +1,3 @@
-# Suppress R CMD check NOTE for ggplot2 column-name non-standard evaluation
-utils::globalVariables(c("CellType", "Expression", "PC1", "PC2"))
-
 #' Plot PCA Emdeddings
 #'
 #' @description Maps the highly complex sequencing dimensions down to just 2 Principal Components (PC1 and PC2).
@@ -14,7 +11,6 @@ utils::globalVariables(c("CellType", "Expression", "PC1", "PC2"))
 #' plot_pca(data, method = "ggplot2")
 plot_pca <- function(data, method = c("base", "lattice", "ggplot2")) {
   if (!inherits(data, "scData")) stop("data must be of class 'scData'")
-  if (is.null(data$pca) || !is.data.frame(data$pca)) stop("data$pca must be a data frame. Re-load with load_scrna().")
   method <- match.arg(method)
   
   pca_data <- data$pca
@@ -70,7 +66,6 @@ plot_pca <- function(data, method = c("base", "lattice", "ggplot2")) {
 #' plot_expression(data, "CD4", method = "lattice")
 plot_expression <- function(data, gene, method = c("base", "lattice", "ggplot2")) {
   if (!inherits(data, "scData")) stop("data must be of class 'scData'")
-  if (!is.character(gene) || length(gene) != 1) stop("gene must be a single character string.")
   if (!gene %in% rownames(data$expression)) stop("Gene not found.")
   method <- match.arg(method)
   
