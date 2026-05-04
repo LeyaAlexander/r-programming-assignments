@@ -1,4 +1,5 @@
 # scExploreRFinal
+Blogger link: https://rprogrammingjournalleyaalexander.blogspot.com/2026/05/final-project-showcase-scexplorerfinal.html
 
 **scExploreRFinal** is an educational R package for exploring single-cell RNA sequencing (scRNA-seq) data. It is the final-project version of the `scExploreR` package skeleton submitted for Assignment 10, extended with the defensive-programming patterns from Assignment 11 and the long-form documentation patterns from Assignment 12.
 
